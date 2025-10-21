@@ -1,0 +1,14 @@
+---
+- name: Install DB servers
+  hosts: databases
+  remote_user: root
+
+  tasks:
+    - name: Ensure Postgresql is at the latest version
+      package:
+        name: postgresql
+        state: latest
+    - name: Ensure that postgresql service is started
+      service: 
+        name: postgresql
+        state: started
